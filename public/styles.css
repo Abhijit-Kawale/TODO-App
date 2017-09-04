@@ -60,3 +60,27 @@ input#checkbox:checked:after {
     left: 3px;
     color: white;
 }
+
+#add_todo {
+    color: grey;
+}
+
+#new_todo_input {
+    border-color: transparent;
+    border-bottom: 1px solid grey;
+}
+
+#add_button {
+    background-color: #87cefa;
+    border-color: transparent;
+    border-radius: 3px;
+    font-size: 20px;
+}
+
+h1 {
+    background-color: #eee8aa;
+}
+
+hr {
+    border: 2px solid black ;
+}
