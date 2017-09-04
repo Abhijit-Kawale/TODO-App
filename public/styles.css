@@ -4,15 +4,22 @@ Rule - Selector, Descriptor
 
 */
 
+body {
+    margin: 2px auto;
+    width: 40%;
+    border: 2px solid black;
+    align-items:center;
+}
+
 .breathVertical {
-    margin-top:5px;
-    margin-bottom:5px;
+    margin-top:10px;
+    margin-bottom:10px;
 }
 
 
-.breathHorizontal {
-    margin-left:5px;
-    margin-right:5px;
+.breathHorizontal , #new_todo_input {
+    margin-left:60px;
+    margin-right:30px;
 }
 
 div.todoStatusACTIVE {
@@ -29,6 +36,7 @@ div.todoStatusCOMPLETE{
 div.todoStatusDELETED {
     color : red;
     text-decoration : line-through;
+    margin-left: 85px;
 
 }
 
@@ -36,6 +44,8 @@ button#delete{
     color: red;
     background: transparent;
     border: transparent;
+    float: right;
+    margin-right: 130px;
 }
 
 
@@ -46,6 +56,7 @@ input#checkbox {
     padding: 10px;
     border-radius: 3px;
     position: relative;
+    float: left;
 }
 
 input#checkbox:checked {
@@ -79,6 +90,10 @@ input#checkbox:checked:after {
 
 h1 {
     background-color: #eee8aa;
+    text-align: center;
+}
+h3 {
+  margin-left: 30px;
 }
 
 hr {
