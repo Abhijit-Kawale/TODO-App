@@ -82,8 +82,32 @@ function addTodoElements(id, todos_data_json){
 function createTodoElement(id, todo_object){
 
     var todo_element = document.createElement("div");
-    todo_element.innerText = todo_object.title;
+    if (todo_object.status == "ACTIVE"){
+
+        var complete_button = document.createElement("input");
+        // complete_button.innerText = "Mark as Complete";
+        complete_button.setAttribute("onclick", "completeTodoAJAX("+id+")");
+        complete_button.setAttribute("class", "breathHorizontal");
+        complete_button.setAttribute("type","checkbox");
+        complete_button.setAttribute("id","checkbox");
+        todo_element.appendChild(complete_button);
+    }
+
+    if (todo_object.status == "COMPLETE"){
+
+        var active_button = document.createElement("input");
+        // active_button.innerText = "Mark as Active";
+        active_button.setAttribute("onclick", "activeTodoAJAX("+id+")");
+        active_button.setAttribute("class", "breathHorizontal");
+        active_button.setAttribute("type","checkbox");
+        active_button.setAttribute("checked","checked");
+        active_button.setAttribute("id","checkbox");
+        todo_element.appendChild(active_button);
+    }
+    //todo_element.innerText = todo_object.title;
     // HW: Read custom data-* attributes
+    todo_element.append(todo_object.title);
+
     todo_element.setAttribute(
         "data-id", id
     );
@@ -93,24 +117,6 @@ function createTodoElement(id, todo_object){
     );
 
 
-    if (todo_object.status == "ACTIVE"){
-
-    var complete_button = document.createElement("button");
-    complete_button.innerText = "Mark as Complete";
-    complete_button.setAttribute("onclick", "completeTodoAJAX("+id+")");
-    complete_button.setAttribute("class", "breathHorizontal");
-    todo_element.appendChild(complete_button);
-    }
-
-    if (todo_object.status == "COMPLETE"){
-
-        var active_button = document.createElement("button");
-        active_button.innerText = "Mark as Active";
-        active_button.setAttribute("onclick", "activeTodoAJAX("+id+")");
-        active_button.setAttribute("class", "breathHorizontal");
-        todo_element.appendChild(active_button);
-    }
-
 
     if (todo_object.status != "DELETED"){
         // HW : Add this functionality
@@ -118,9 +124,10 @@ function createTodoElement(id, todo_object){
         // add a delete button
         // HW : Write this code
         var delete_button = document.createElement("button");
-        delete_button.innerText = "Delete";
+        delete_button.innerText = "X";
         delete_button.setAttribute("onclick", "deleteTodoAJAX("+id+")");
         delete_button.setAttribute("class", "breathHorizontal");
+        delete_button.setAttribute("id","delete");
         todo_element.appendChild(delete_button);
     }
 
